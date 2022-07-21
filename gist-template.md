@@ -19,7 +19,7 @@ In this tutorial, we will break down each component of the regex above and expla
     - [Anchors](#anchors)
     - [Grouping and Capturing](#grouping-and-capturing)
     - [Character Classes and Character Sets](#character-classes-and-character-sets)
-    - [Greedy and Lazy Match](#greedy-and-lazy-match)
+    - [Quantifiers](#quantifiers)
     - [Boundaries](#boundaries)
     - [Back-references](#back-references)
     - [Look-ahead and Look-behind](#look-ahead-and-look-behind)
@@ -78,7 +78,29 @@ Well you're right we don't see 0-9 explicitly stated, but the \d is a special st
 Character Classes are handy shorthand to match common sets of characters in RegEx.
 
 
-### Greedy and Lazy Match
+### Quantifiers
+
+Quantifiers in a RegEx are a way for us to tell the RegEx search pattern how many matches we would like for a particular set of characters. There are a few different quantifiers that could be used and we'll addresss the ones specific to our chosen RegEx.
+
+Our RegEx contains 2 different quantifiers used 3 total times.
+
+The first quantifier we use is present in substrings 1 and 2 from our grouping section. It is the + character.
+
+Let's look at substrings 1 and 2 from above: ([a-z0-9_\.-]+) and ([\da-z\.-]+), respectively.
+
+Notice how the + falls outside of the Character Set but within the Group. What this is telling the RegEx engine is to match one or more of the preceding Character Set. Basically, in Group 1, the RegEx engine is looking to match any number of any character specified in the Character Set that precedes the @ symbol. This makes sense because we don't know what characters our users' email addresses will contain before the @, but we do know they will contain some combination of letters, numbers, periods, hyphens, and underscores.
+
+The same logic can be applied to Group 2.
+
+In Group 3, we forgo the + for two numbers within a set of curly braces. Let's take a look: ([a-z\.]{2,6})
+
+{2,6} follows our Character Set defined in Group 3. Like the + this is telling the RegEx engine to look for a certain number of the preceeding Character Set characters but, this time, we are explicitly telling it the number of characters it is allowed to match. With this in mind, look at the {2,6} once more. How many characters do you think we are telling it to search for?
+
+We want Group 3 to contain a minimum of 2 characters and a maximum of 6 characters. Any number between and inclusive of these two numbers is also allowed.
+For example, a domain extension of .me would pass because it is at least two characters.
+.health would also pass because it just at the maximum number of 6.
+And, of course, the more common .com would also pass because 3 is between 2 and 6.
+Yet again, our illustrative email - example@test.com fits these criteria.
 
 ### Boundaries
 
