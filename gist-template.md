@@ -20,7 +20,7 @@ In this tutorial, we will break down each component of the regex above and expla
     - [Grouping and Capturing](#grouping-and-capturing)
     - [Character Classes and Character Sets](#character-classes-and-character-sets)
     - [Quantifiers](#quantifiers)
-    - [Everything Put Together](#everything-put-together)
+    - [Components Put Together](#components-put-together)
   - [Author](#author)
 
 ## Regex Components
@@ -53,11 +53,11 @@ Substring 3 follows the \. and is: `([a-z\.]{2,6})`
 
 Do you see how we created 3 references and how this might be useful to us? Let's apply the above to our example email address: example@regex.com
 
-Following our logic from our Groups - example would be our substring 1, regex would be our substring 2, and com would be our substring 3.
+Following our logic from our substrings - example would be our substring 1, regex would be our substring 2, and com would be our substring 3.
 
 ### Character Classes and Character Sets
 
-A Character Set is used to define a set of characters to match. Within our 3 substring groups defined above, we also have 3 distinct Character Sets.
+A Character Set is used to define a set of characters to match. Within our 3 substrings defined above, we also have 3 distinct Character Sets.
 
 Within substring 1, we have: `[a-z0-9_\.-]`
 
@@ -96,7 +96,23 @@ In substring 3, we forgo the + for two numbers within a set of curly braces. Let
 
 We want substring 3 to contain a minimum of 2 characters and a maximum of 6 characters. Any number between and inclusive of these two numbers is also allowed. Yet again, our illustrative email - example@regex.com fits these criteria.
 
-### Everything Put Together
+### Components Put Together
+
+Let's look at our RegEx once last time: `/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`
+
+After reviewing the sections above, we should understand the following:
+
+* `^([a-z0-9_\.-]+)` is looking to ensure that our email address starts with (indicated by the `^`) any combination (and number) of lowercsae letters, numbers, underscores, hyphens, or periods and that this combination occurs before an `@`. 
+* `([\da-z\.-]+)` is looking to ensure that our email address contains any combination (and number) of lowercase letters, numbers, hyphens, or periods between the `@` and the period `\.`.
+* `([a-z\.]{2,6})$` is looking to ensure that our email address ends with (indicated by the `$`) any combination of lowercase letters or periods so long as the combination is between 2 and 6 characters.
+
+Look at the following email addresses:
+* `example@regex.com`
+  * This email address would pass all the specified tests of the RegEx since it does not contain any dissallowed characters and the different character groups, especially substring 3, meet the length criteria. 
+* `@example@regularexpressions.com`
+  * This email addresss would fail because the first substring contains a disallowed character, the `@`.
+* `bob@test.programmingisfun`
+  * This email address would fail because the domain extension exceeds the 2-6 character limit imposed by the quantifier `{2,6}` in substring 3. 
 
 ## Author
 
