@@ -33,9 +33,17 @@ In this tutorial, we will break down each component of the regex above and expla
 
 ### Anchors
 
-**^The** -- matches any string that starts with **The**  
-**end$** -- matches a string that ends with **end**  
-**^The end&** -- exact string match (starts with and ends with **The end**)
+In a RegEx, Anchors are used to match a position within a string, not a character to be matched itself. There are a handful of Anchors that can be used, but we are using two of the most common in this email address RegEx. They are ^ and $.
+
+The ^ is used to match a certain character or any character at the beginning of a string. The $ is used to match a certain character or any character at the end of a string.
+
+Let's look at our RegEx: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+
+Do you see the ^ that follows the first / and the $ that precedes the closing /? This tells us that our RegEx is looking for a certain set of characters, ([a-z0-9_\.-]+), to match at the beginning of the string and a certain set of characters, ([a-z\.]{2,6}) to match at the end of the string.
+
+Now we know we are our string must begin and end with certain characters to pass our email test.
+
+For example, test@example.com would pass our anchor test because it starts and ends with characters that meet the specified criteria. However, t@ste@cook.com would fail because we have an unallowed @ in the beginning of our email address.
 
 ### Quantifiers
 
