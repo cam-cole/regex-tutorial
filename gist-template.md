@@ -1,10 +1,14 @@
 # Email Regex Tutorial
 
-Introductory paragraph (replace this with your text)
+Hello, everyone! My name is Cameron and today we are going to learn about regular expressions a.k.a regex.
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+The regular expression we are covering today is matching an email - 
+
+`/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`
+
+In this tutorial, we will break down each component of the regex above and explain how this expression allows us to search for all email addresses in a body of text.
 
 ## Table of Contents
 
@@ -51,4 +55,5 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Cameron Cole is a student in the Univeristy of Minnesota Coding Bootcamp who is an aspiring to begin a career in software development. You can check out their github here: https://github.com/cam-cole
+
