@@ -20,9 +20,7 @@ In this tutorial, we will break down each component of the regex above and expla
     - [Grouping and Capturing](#grouping-and-capturing)
     - [Character Classes and Character Sets](#character-classes-and-character-sets)
     - [Quantifiers](#quantifiers)
-    - [Boundaries](#boundaries)
-    - [Back-references](#back-references)
-    - [Look-ahead and Look-behind](#look-ahead-and-look-behind)
+    - [Everything Put Together](#everything-put-together)
   - [Author](#author)
 
 ## Regex Components
@@ -98,11 +96,7 @@ In substring 3, we forgo the + for two numbers within a set of curly braces. Let
 
 We want substring 3 to contain a minimum of 2 characters and a maximum of 6 characters. Any number between and inclusive of these two numbers is also allowed. Yet again, our illustrative email - example@regex.com fits these criteria.
 
-### Boundaries
-
-### Back-references
-
-### Look-ahead and Look-behind
+### Everything Put Together
 
 ## Author
 
