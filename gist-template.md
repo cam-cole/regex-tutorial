@@ -33,7 +33,14 @@ In this tutorial, we will break down each component of the regex above and expla
 
 ### Anchors
 
+**^The** -- matches any string that starts with **The**  
+**end$** -- matches a string that ends with **end**  
+**^The end&** -- exact string match (starts with and ends with **The end**)
+
 ### Quantifiers
+
+abc* -- matches a string that has ab followed by zero or more c  
+abc+ -- matches a string that has ab followed by one or more c
 
 ### OR Operator
 
