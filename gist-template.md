@@ -43,7 +43,7 @@ Do you see the ^ that follows the first / and the $ that precedes the closing /?
 
 Now we know we are our string must begin and end with certain characters to pass our email test.
 
-For example, test@example.com would pass our anchor test because it starts and ends with characters that meet the specified criteria. However, t@ste@cook.com would fail because we have an unallowed @ in the beginning of our email address.
+For example, example@regex.com would pass our anchor test because it starts and ends with characters that meet the specified criteria. However, @example@regex.com would fail because we have an unallowed @ in the beginning of our email address.
 
 ### Quantifiers
 
