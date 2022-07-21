@@ -59,11 +59,9 @@ Following our logic from our Groups - example would be our substring 1, regex wo
 
 ### Character Classes and Character Sets
 
-You might have noticed in our discussion of capture groups above that we are enclosing the bulk of our searched characters within brackets []. This is not just for making our RegEx easier to read - we are actually created what is called a Character Set. Also, because these characters are enclosed in brackets they can also be referred to as a Bracket Expression.
+A Character Set is used to define a set of characters to match. Within our 3 substring groups defined above, we also have 3 distinct Character Sets.
 
-A Character Set is used to define a set of characters to match. Within our 3 Capture Groups defined above, we also have 3 distinct Character Sets.
-
-Within Group 1, we have: [a-z0-9_\.-]
+Within substring 1, we have: `[a-z0-9_\.-]`
 
 Within the Character Set, there are a few things going on:
 
@@ -71,19 +69,14 @@ We are looking for any lowercase letter from a-z with the a-z
 We are looking for any numeric character from 0-9 with the 0-9
 We are looking for underscores with the _
 We are looking for periods with the \..
-You might ask why there is a backslash preceding the period if we are only looking for a period? This is because a period is a special character within the RegEx engine and must be escaped (the backslash) to let the RegEx engine know that we are looking for a plain old period and not using the period in its special way. If you were to just type a period, the engine would think you are looking to match any character because this is what the period's special meaning is if not escaped.
 Finally, we are looking for hyphens with the -
-Within Group 2, we have: [\da-z\.-]
+Within substring 2, we have: `[\da-z\.-]`
 
-Much like Group 1, we are looking for lowercase letters, numbers, a period, or a hyphen. Notice we are excluding the underscore this time.
+Much like substring 1, we are looking for lowercase letters, numbers, a period, or a hyphen. Notice we are excluding the underscore this time.
 Wait a minute - how do we know we are searching for numbers in this Character Set? We don't see 0-9 this time.
-Well you're right we don't see 0-9 explicitly stated, but the \d is a special statement within RegEx called a Character Class. \d is equivalent to writing [0-9] which is what we wrote in Group 1.
+Well you're right we don't see 0-9 explicitly stated, but the \d is a special statement within RegEx called a Character Class. \d is equivalent to writing [0-9] which is what we wrote in substring 1.
 Character Classes are handy shorthand to match common sets of characters in RegEx.
-Do you remember our period example from Group 1? . is actually a Character Class too. Recall that if a period is not escaped with a backslash RegEx interprets that we are trying to match any character.
-Within Group 3, we have: [a-z\.]
 
-Unlike the previous two Character Sets, we are only looking for lowercase letters and a period.
-As before, our illustrative email - example@test.com - meets all of these criteria.
 
 ### Greedy and Lazy Match
 
